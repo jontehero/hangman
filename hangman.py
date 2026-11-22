@@ -24,6 +24,14 @@ def ar_giltigt_ord(text):
        return True
    else: return False
 
+def ar_en_bokstav(text):
+    allowed = "abcdefghijklmnopqrstuvwxyzåäö"
+    if len(text) == 1 and all (c in allowed for c in text):
+        return True
+    else: return False
+
+
+
 
 
 # --- TESTER ---
@@ -31,4 +39,8 @@ assert normalisera("  KaTt ") == "katt"
 assert ar_giltigt_ord("text") 
 assert not ar_giltigt_ord("o")
 assert not ar_giltigt_ord("hej0")
+assert ar_en_bokstav("a")
+assert not ar_en_bokstav("")
+assert not ar_en_bokstav("ab")
+assert not ar_en_bokstav("1")
 # spela()   # aktiveras på dag 3
