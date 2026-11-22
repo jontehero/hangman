@@ -30,7 +30,16 @@ def ar_en_bokstav(text):
         return True
     else: return False
 
-
+def visa_ord(hemligt_ord, gissade):
+    resultat = []
+    for bokstav in hemligt_ord:
+      
+        if bokstav in gissade:
+            resultat.append(bokstav)
+        else:
+            resultat.append("_")
+        
+    return " ".join(resultat)
 
 
 
@@ -43,4 +52,6 @@ assert ar_en_bokstav("a")
 assert not ar_en_bokstav("")
 assert not ar_en_bokstav("ab")
 assert not ar_en_bokstav("1")
+assert visa_ord("katt",["k", "t"])=="k _ t t"
+assert visa_ord("katt", []) == "_ _ _ _"
 # spela()   # aktiveras på dag 3
