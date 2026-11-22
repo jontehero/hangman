@@ -1,9 +1,8 @@
 """Hänga gubben för två spelare i terminalen."""
-"""git add hangman.py
-git commit -m "Funktion 2: ar_giltigt_ord"
-git push"""
-
-
+"""          
+git add hangman.py
+git commit -m "Funktion 5 : Felaktiga gissningar"
+git push                                        """
 
 MAX_FEL = 6
 GUBBE_STEG = []   # ritas på dag 2
@@ -41,6 +40,16 @@ def visa_ord(hemligt_ord, gissade):
         
     return " ".join(resultat)
 
+def felaktiga_gissningar(hemligt_ord, gissade):
+    felaktiga = []
+    for bokstav in gissade:
+        if not bokstav in hemligt_ord:
+             felaktiga.append(bokstav)
+    return felaktiga
+
+
+
+
 
 
 # --- TESTER ---
@@ -54,4 +63,7 @@ assert not ar_en_bokstav("ab")
 assert not ar_en_bokstav("1")
 assert visa_ord("katt",["k", "t"])=="k _ t t"
 assert visa_ord("katt", []) == "_ _ _ _"
+assert felaktiga_gissningar("katt", ["k", "x", "t", "z"]) == ["x","z"]
+
+
 # spela()   # aktiveras på dag 3
