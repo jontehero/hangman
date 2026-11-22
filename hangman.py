@@ -47,6 +47,12 @@ def felaktiga_gissningar(hemligt_ord, gissade):
              felaktiga.append(bokstav)
     return felaktiga
 
+def har_vunnit(hemligt_ord, gissade):
+    for bokstav in hemligt_ord:
+        if bokstav not in gissade:
+            return False
+    return True
+
 
 
 
@@ -64,6 +70,8 @@ assert not ar_en_bokstav("1")
 assert visa_ord("katt",["k", "t"])=="k _ t t"
 assert visa_ord("katt", []) == "_ _ _ _"
 assert felaktiga_gissningar("katt", ["k", "x", "t", "z"]) == ["x","z"]
+assert har_vunnit("katt", ["k", "a", "t"])
+assert not har_vunnit("katt", ["k", "t"])
 
 
 # spela()   # aktiveras på dag 3
