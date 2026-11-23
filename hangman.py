@@ -54,6 +54,15 @@ def har_vunnit(hemligt_ord, gissade):
     return True
 
 
+def correct_procent(antal_ratt, antal_gissningar):
+    
+    if antal_gissningar > 0:   
+        procent = antal_ratt / antal_gissningar * 100 
+        return round(procent)
+    elif antal_gissningar < 1:
+        return 0
+
+
 
 
 
@@ -72,6 +81,12 @@ assert visa_ord("katt", []) == "_ _ _ _"
 assert felaktiga_gissningar("katt", ["k", "x", "t", "z"]) == ["x","z"]
 assert har_vunnit("katt", ["k", "a", "t"])
 assert not har_vunnit("katt", ["k", "t"])
+assert correct_procent(0, 0) == 0
+assert correct_procent(3, 3) == 100
+assert correct_procent(3, 4) == 75
+
+
+
 
 
 # spela()   # aktiveras på dag 3
