@@ -3,9 +3,9 @@
 git add hangman.py
 git commit -m "Funktion 5 : Felaktiga gissningar"
 git push                                        """
-
+"KONSTANTER"
 MAX_FEL = 6
-GUBBE_STEG = []   # ritas på dag 2
+GUBBE_STEG = ["0 fel", "1 fel", "2 fel", "3 fel", "4 fel", "5 fel", "6 fel"]
 
 # --- FUNKTIONER ---
 
@@ -62,6 +62,10 @@ def correct_procent(antal_ratt, antal_gissningar):
     elif antal_gissningar < 1:
         return 0
 
+def visa_gubbe(fel):
+    return GUBBE_STEG[fel]
+
+
 
 
 
@@ -84,6 +88,9 @@ assert not har_vunnit("katt", ["k", "t"])
 assert correct_procent(0, 0) == 0
 assert correct_procent(3, 3) == 100
 assert correct_procent(3, 4) == 75
+assert len(GUBBE_STEG) == 7
+assert visa_gubbe(0) == GUBBE_STEG[0]
+assert visa_gubbe(6) == GUBBE_STEG[6]
 
 
 
